@@ -1,0 +1,59 @@
+<template>
+
+    <lightning-card  title="Patient Information">
+        <div class="flex-box flex-box flex-center-10">
+            <div>
+                
+                <input 
+                    class="hb-input firstName" 
+                    name="firstName" 
+                    type="text" 
+                    placeholder="First Name" 
+                    value={firstName} 
+                    readonly={isSubmitted}
+                    onchange={handleChange}
+                />
+
+                <input 
+                    class="hb-input email" 
+                    name="email"
+                    type="text" 
+                    placeholder="Email" 
+                    value={email} 
+                    readonly={isSubmitted}
+                    onchange={handleChange}
+                />
+                
+
+            </div>
+            <div>
+                
+                <input 
+                    class="hb-input lastName" 
+                    name="lastName" 
+                    type="text" 
+                    placeholder="Last Name" 
+                    value={lastName} 
+                    readonly={isSubmitted}
+                    onchange={handleChange}
+                />
+
+                <input 
+                    class="hb-input phone" 
+                    name="phone"
+                    type="text" 
+                    placeholder="Mobile No" 
+                    value={phone} 
+                    readonly={isSubmitted} 
+                    onchange={handleChange}
+                    pattern="\d{10}"
+                />
+
+            </div>
+            <div class="flex-box flex-box flex-center-10">
+                <button class="hb-btn hb-btn-primary hb-m-1" onclick={cancelPatientForm}>Clear</button>
+                <button class="hb-btn hb-btn-secondary hb-m-1" onclick={savePatientForm}>{submitLabel}</button>
+            </div>   
+        </div>
+    </lightning-card>
+</template>

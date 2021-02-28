@@ -1,0 +1,139 @@
+
+*{
+    --red-color : #f97268;
+    --black-color : #212d2e;
+}
+
+.app-item{
+    margin: 1em;
+    padding: 1em;
+}
+
+
+.flex-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-center{
+    padding: 0 25%;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.flex-center-10{
+    padding: 0 10%;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+
+.hb-btn {
+    padding: .75em 3em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-sizing: border-box;
+    max-width: 70%;
+    display: block;
+    font-weight: 700;
+    border:none;
+    outline: none;
+}
+
+.hb-btn-primary{
+    color: var(--black-color);
+}
+
+.selected {
+    background-color: var(--red-color);
+    color: white;
+}
+
+.hb-btn-secondary {
+    background-color: var(--red-color);
+    color: white;
+}
+
+.hb-m-1{
+    margin: 1em;
+}
+
+.hb-m-1-auto{
+    margin: 1em auto;
+}
+
+
+.hb-input{
+    line-height: normal;
+    background: rgb(239, 239, 239);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.25em;
+    width: 95%;
+    padding: 0.75em;
+    margin: 1em;
+}
+
+.hb-input.error{
+    background: #fc8787;
+}
+
+.hb-card-container{
+    flex-wrap: wrap;
+    margin: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.hb-card{
+    background: rgb(239, 239, 239);
+    width: 20em;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 1em;
+    margin-bottom: 1em;
+    border-radius: 5px;
+}
+
+.hb-card-header{
+    
+    padding: 1em;
+}
+
+.hb-title {
+    font-size: 1.45em;
+    text-transform: uppercase;
+    color: var(--red-color);
+    font-weight: 700;
+}
+
+.hb-info-container{
+    padding: 1em;
+    color: var(--black-color);
+    box-sizing: border-box;
+}
+
+.hb-price-container{
+    font-size: 3em;
+    font-weight: 600;
+    margin-top: 0;
+    display: inline-block;
+    width: 80%;
+}
+
+.hb-border-all-2-primary{
+    border: 2px solid var(--red-color);
+}

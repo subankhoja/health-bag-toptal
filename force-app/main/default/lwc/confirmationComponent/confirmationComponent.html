@@ -1,0 +1,12 @@
+<template>
+    
+    <template if:true={showConfirmationComponent}>
+            <lightning-card>  
+                <div class="flex-box flex-box flex-center">
+                    <button class="hb-btn hb-btn-primary hb-m-1-auto" onclick={cancelAppointment}>Cancel</button>
+                    <button class="hb-btn hb-btn-secondary" onclick={confirmAppointment}>Confirm</button>
+                </div>
+            </lightning-card>
+    </template>
+
+</template>

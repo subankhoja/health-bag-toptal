@@ -1,0 +1,26 @@
+<template>
+    
+    <template if:true={showAppointmentForm}>
+        
+            <lightning-card title="Appointment Information">
+                <div class="flex-box flex-col">
+                    <lightning-input class="slds-m-bottom_medium appointmentDate" type="date" name="appointmentDate" label="Select a date" value={appointmentDate} min={minDate} onchange={handleValidation} required></lightning-input>
+                </div>     
+                <div class="flex-box flex-box flex-center time-container">
+                    <button class="hb-btn hb-btn-primary hb-m-1-auto" onclick={onAppointmentTimeSelection}>10:00 - 11:00</button>
+                    <button class="hb-btn hb-btn-primary hb-m-1-auto" onclick={onAppointmentTimeSelection}>11:00 - 12:00</button>
+                    <button class="hb-btn hb-btn-primary hb-m-1-auto" onclick={onAppointmentTimeSelection}>12:00 - 13:00</button>
+                    <button class="hb-btn hb-btn-primary hb-m-1-auto" onclick={onAppointmentTimeSelection}>13:00 - 14:00</button>
+                    <button class="hb-btn hb-btn-primary hb-m-1-auto" onclick={onAppointmentTimeSelection}>14:00 - 15:00</button>
+                    <button class="hb-btn hb-btn-primary hb-m-1-auto" onclick={onAppointmentTimeSelection}>15:00 - 16:00</button>
+                    <button class="hb-btn hb-btn-primary hb-m-1-auto" onclick={onAppointmentTimeSelection}>16:00 - 17:00</button>
+                    <button class="hb-btn hb-btn-primary hb-m-1-auto" onclick={onAppointmentTimeSelection}>17:00 - 18:00</button>
+                </div>
+                <div class="flex-box flex-box flex-center">
+                    <button class="hb-btn hb-btn-secondary hb-m-1-auto" onclick={saveAppointmentDetails}>{btnName}</button>
+                </div>  
+            </lightning-card>
+        
+    </template>
+
+</template>

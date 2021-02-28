@@ -1,0 +1,23 @@
+<template>
+    
+    <template if:true={showSpecializations}>
+        <lightning-card title="Select Specialization">
+            <div class="hb-card-container">
+                <template for:each={specializations} for:item="specialization">
+                    <div class="hb-card" key={specialization.Id}>
+                        <div class="hb-card-header">
+                            <div class="hb-title">{specialization.Name}</div>
+                        </div>
+                        <div class="hb-info-container">
+                            <div class="hb-price-container">
+                                <p>${specialization.Price__c}</p>
+                            </div>
+                            <button data-id={specialization.Id} class="hb-btn hb-btn-primary hb-m-1-auto hb-border-all-2-primary" onclick={onSpecializationSelection}>Select</button>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+    </template>
+
+</template>

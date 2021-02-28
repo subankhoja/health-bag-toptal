@@ -1,0 +1,37 @@
+<template>
+    
+    <!-- Patient Deail Component -->
+    <div class="app-item">
+        <c-patient-form onpatientsubmit={handlePatientData}></c-patient-form>
+    </div>
+
+    <!-- Specialization Form-->
+    <div class="app-item">
+        <c-specialization-form onspecializationsubmit={handleSpecializationData}></c-specialization-form>
+    </div>
+
+    <!-- Appointment Form-->
+    <div class="app-item">
+        <c-appointment-form 
+            onappointmentsubmit={handleAppointmentData}
+            ></c-appointment-form>
+    </div>
+
+    <!-- Physician Form-->
+    <div class="app-item">
+        <c-physician-selector
+            onphysiciansubmit={handlePhysicianData}>
+        </c-physician-selector>
+    </div>
+
+    <!-- Confirmation Block-->
+    <div class="app-item" if:true={showConfirm}>
+        <c-confirmation-component
+        patient-data={patientData}
+        specialization-data={specializationData}
+        appointment-data={appointmentData}
+        physician-data={physicianData}
+        ></c-confirmation-component>
+    </div>
+    
+</template>
