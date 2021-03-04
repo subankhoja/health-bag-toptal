@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <authorizeUrl>https://accounts.google.com/o/oauth2/auth?access_type=offline&amp;approval_prompt=force</authorizeUrl>
+    <consumerKey>386612248455-c9jt9rf7a5svc6ieqrnalnct84b668bo.apps.googleusercontent.com</consumerKey>
+    <consumerSecret>rvT+xRI3A6DhxDWdTIw3cxF3ZB82pXMqcEEY92ILatc=</consumerSecret>
+    <defaultScopes>https://www.googleapis.com/auth/calendar.events</defaultScopes>
+    <friendlyName>Google Connect</friendlyName>
+    <includeOrgIdInIdentifier>false</includeOrgIdInIdentifier>
+    <providerType>OpenIdConnect</providerType>
+    <sendAccessTokenInHeader>true</sendAccessTokenInHeader>
+    <sendClientCredentialsInHeader>false</sendClientCredentialsInHeader>
+    <sendSecretInApis>true</sendSecretInApis>
+    <tokenUrl>https://oauth2.googleapis.com/token</tokenUrl>
+</AuthProvider>

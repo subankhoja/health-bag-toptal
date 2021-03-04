@@ -1,0 +1,89 @@
+<template>
+
+    <lightning-card  title="Patient Information">
+        
+        <!-- Form Toggle Container -->
+        <div class="flex flex-row flex-j-center">
+            <!-- Input Form Toggle -->
+            <button class="hb-btn hb-btn-primary hb-m-1 input-toggle-btn" onclick={toggleInputForm}>New</button>
+            <!-- Search Form Toggle -->
+            <button class="hb-btn hb-btn-primary hb-m-1 search-toggle-btn selected" onclick={toggleSearchForm}>Existing</button>
+        </div>
+
+        <template if:true={showSearchForm}>
+            <div class="flex flex-row flex-j-center flex-a-center">
+               <!-- Patient Search Email -->
+                <input 
+                    class="hb-input email" 
+                    name="searchEmail"
+                    type="text" 
+                    placeholder="Email" 
+                    value={searchEmail} 
+                    onchange={handleChange}
+                />
+                <!-- Search Button -->
+                <button class="hb-btn hb-btn-secondary hb-m-1" onclick={searchPatient}>Search</button>
+
+            </div>
+        </template>
+        <template if:true={showInputForm}>
+            <div class="flex flex-j-center flex-a-center flex-wrap hb-p-0-10">
+                <div class="flex flex-row">
+                    <!-- Patient First Name -->
+                    <input 
+                        class="hb-input firstName" 
+                        name="firstName" 
+                        type="text" 
+                        placeholder="First Name" 
+                        value={firstName} 
+                        readonly={isSubmitted}
+                        onchange={handleChange}
+                    />
+    
+                    <!-- Patient Last Name -->
+                    <input 
+                        class="hb-input lastName" 
+                        name="lastName" 
+                        type="text" 
+                        placeholder="Last Name" 
+                        value={lastName} 
+                        readonly={isSubmitted}
+                        onchange={handleChange}
+                    />
+    
+                </div>
+                <div class="flex flex-row">
+                    
+                    <!-- Patient Email -->
+                    <input 
+                        class="hb-input email" 
+                        name="email"
+                        type="text" 
+                        placeholder="Email" 
+                        value={email} 
+                        readonly={isSubmitted}
+                        onchange={handleChange}
+                    />
+    
+                    <!-- Patient Phone -->
+                    <input 
+                        class="hb-input phone" 
+                        name="phone"
+                        type="text" 
+                        placeholder="Mobile No" 
+                        value={phone} 
+                        readonly={isSubmitted} 
+                        onchange={handleChange}
+                        pattern="\d{10}"
+                    />
+    
+                </div>
+                <div class="flex flex-row flex-j-center flex-a-center flex-wrap hb-p-0-10">
+                    <!-- Save Btn -->
+                    <button class="hb-btn hb-btn-secondary hb-m-1" onclick={savePatientForm}>{submitLabel}</button>
+                </div>   
+            </div>
+        </template>
+      
+    </lightning-card>
+</template>

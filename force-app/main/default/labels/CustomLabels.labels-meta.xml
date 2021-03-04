@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AllowAppointmentMail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AllowAppointmentMail</shortDescription>
+        <value>true</value>
+    </labels>
+    <labels>
+        <fullName>Decompose_Order</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Decompose Order</shortDescription>
+        <value>Decompose Order</value>
+    </labels>
+    <labels>
+        <fullName>Quote_to_PDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quote to PDF</shortDescription>
+        <value>Quote to PDF</value>
+    </labels>
+</CustomLabels>

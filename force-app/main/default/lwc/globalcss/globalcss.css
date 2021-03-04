@@ -1,0 +1,189 @@
+/* Global Colors */
+*{
+    --red-color : #f97268;
+    --black-color : #212d2e;
+    --light-grey-color : #efefef;
+}
+
+/* margin classes Start */
+
+.hb-m-1{
+    margin: 1em;
+}
+
+.hb-m-1-auto{
+    margin: 1em auto;
+}
+.hb-m-b-1{
+    margin-bottom: 1em;
+}
+
+/* margin classes End */
+
+/* padding classes Start */
+
+.hb-p-1{
+    padding: 1em;
+}
+
+.hb-p-0-25{
+    padding: 0 25%;
+}
+
+.hb-p-0-10{
+    padding: 0 10%;
+}
+/* padding classes End */
+
+/* Height classes Start */
+
+.hb-h-primary{
+    height: 38px;
+}
+
+/* Height Classes End*/
+
+
+/* Flex Classes Start*/
+
+.flex {
+    display: flex;
+}
+
+.flex-j-center{
+    justify-content: center;
+}
+
+.flex-a-center{
+    align-items: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+/* Flex Classes End*/
+
+/* Button Classes Start */
+
+.hb-btn {
+    padding: .75em 3em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.25s;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: block;
+    font-weight: 700;
+    border:none;
+    outline: none;
+}
+
+.hb-btn-primary{
+    color: var(--black-color);
+}
+
+.selected {
+    background-color: var(--red-color);
+    color: white;
+}
+
+.hb-btn-secondary {
+    background-color: var(--red-color);
+    color: white;
+}
+
+.hb-btn-read-only{
+    pointer-events: none;
+}
+
+/* Button Classes End */
+
+/* Input Classes Start */
+
+.hb-input{
+    line-height: normal;
+    background: var(--light-grey-color);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.25em;
+    width: 500px;
+    padding: 0.75em;
+    margin: 1em;
+}
+
+.hb-input.error{
+    background: #fc8787;
+}
+
+/* Input Classes End */
+
+/* Card Classes Start */
+
+.hb-card-container{
+    flex-wrap: wrap;
+    margin: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.hb-card{
+    background: var(--light-grey-color);
+    width: 20em;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 1em;
+    margin-bottom: 1em;
+    border-radius: 5px;
+}
+
+.hb-card-header{
+    
+    padding: 1em;
+}
+
+.hb-title {
+    font-size: 1.45em;
+    text-transform: uppercase;
+    color: var(--red-color);
+    font-weight: 700;
+}
+
+.hb-info-container{
+    padding: 1em;
+    color: var(--black-color);
+    box-sizing: border-box;
+}
+
+.hb-price-container{
+    font-size: 3em;
+    font-weight: 600;
+    margin-top: 0;
+    display: inline-block;
+    width: 80%;
+}
+
+.hb-border-all-2-primary{
+    border: 2px solid var(--red-color);
+}
+
+/* Card Classes End */
+
+/* Spinner Classes start */
+
+.hb-spinner{
+    position: relative;
+}
+
+/* Spinner Classes End */

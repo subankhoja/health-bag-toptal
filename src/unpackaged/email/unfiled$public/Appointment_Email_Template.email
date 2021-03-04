@@ -1,0 +1,30 @@
+<h4 style="font-weight:600">Dear {!Appointment__c.Patient_Name__c}</h4>
+
+<p>
+  This is a friendly reminder confirming your appointment with Health Bag on <span style="color:#f97268"><b><i>{!Appointment__c.Appointment_Date__c} {!Appointment__c.Appointment_Time__c}</i></b>.</span> Please try to arrive <span style="color:#5bc88a;font-weight:600">15 minutes</span> early.</p>
+
+<h3>Details</h3>
+
+<ul>
+  <li>
+    <span style="font-weight:600">Patient Name</span> - <span style="color:#2c77db;font-weight:600">{!Appointment__c.Patient_Name__c}</span>
+  </li>
+  <li>
+    <span style="font-weight:600">Physician Name</span> - <span style="color:#2c77db;font-weight:600">{!Appointment__c.Physician_Email__c}</span>
+  </li>
+  <li>
+    <span style="font-weight:600">Specialization</span> - <span style="color:#2c77db;font-weight:600">{!Appointment__c.Specialization_Name__c}</span>
+  </li>
+  <li>
+    <span style="font-weight:600">Date/Time</span> - <span style="color:#2c77db;font-weight:600">{!Appointment__c.Appointment_Date__c} {!Appointment__c.Appointment_Time__c}</span>
+  </li>
+  <li>
+    <span style="font-weight:600">Fee</span> - <span style="color:#2c77db;font-weight:600">{!Appointment__c.Fee__c}</span>
+  </li>
+</ul>
+
+<p style="color:#5bc88a">Have a wonderful day!</p>
+
+<p><b><i>Warm regards,</i></b></p>
+
+<p style="font-weight:600"><i>Health Bag Clinic.</i></p>

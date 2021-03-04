@@ -1,0 +1,33 @@
+<template>
+    
+    <template if:true={showAppointmentForm}>
+        
+            <lightning-card title="Appointment Information">
+                <!-- Appointment Date Input Start -->
+                <div class="flex flex-j-center flex-a-center flex-col">
+                    <lightning-input class="hb-m-b-1 appointmentDate" type="date" name="appointmentDate" label="Select a date" value={appointmentDate} min={minDate} onchange={handleValidation} required></lightning-input>
+                </div>
+                <!-- Appointment Date Input End -->
+
+                <!-- Appointment Time Slots Start -->
+                <div class="flex flex-j-center flex-a-center flex-wrap hb-p-0-25 time-container">
+                    <template if:true={timeSlots}>
+                        <template for:each={timeSlots} for:item="timeSlot">
+                            <button key={timeSlot} class="hb-btn hb-btn-primary hb-m-1-auto appointment-btn" onclick={onAppointmentTimeSelection}>{timeSlot}</button>
+                        </template>
+                    </template>
+                </div>
+                <!-- Appointment Time Slots End -->
+
+                <!-- Appointment Save Button Start -->
+                <template if:true={showSaveButton}>
+                    <div class="flex flex-j-center flex-a-center flex-wrap hb-p-0-25">
+                        <button class="hb-btn hb-btn-secondary hb-m-1-auto" onclick={saveAppointmentDetails}>{btnName}</button>
+                    </div>
+                </template>
+                <!-- Appointment Save Button End -->
+            </lightning-card>
+        
+    </template>
+
+</template>

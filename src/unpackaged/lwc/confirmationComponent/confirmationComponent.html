@@ -1,0 +1,23 @@
+<template>
+    
+    <template if:true={showConfirmationComponent}>
+            <lightning-card>  
+                <div class="flex flex-j-center flex-a-center flex-wrap hb-p-0-25">
+                    <!-- Cancle Button -->
+                    <button class="hb-btn hb-btn-primary hb-m-1" onclick={cancelAppointment}>Cancel</button>
+                    <!-- Confirm Button -->
+                    <button class="hb-btn hb-btn-secondary hb-m-1 hb-h-primary" onclick={confirmAppointment}>
+                        <!-- inline Spinner -->
+                        <template if:true={loadSpinner}>
+                            <lightning-spinner class="hb-spinner" alternative-text="Loading" size="small"></lightning-spinner>
+                        </template>
+                        <!-- Confirm Button text -->
+                        <template if:false={loadSpinner}>
+                            Confirm
+                        </template>
+                    </button>
+                </div>
+            </lightning-card>
+    </template>
+
+</template>

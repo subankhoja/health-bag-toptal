@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email Template that is used to send Appointment Details to Patient</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Appointment Email Template</name>
+    <style>none</style>
+    <subject>Your Appointment Details with Health Bag</subject>
+    <textOnly>Dear {!Appointment__c.Patient_Name__c} 
+
+This is a friendly reminder confirming your appointment with Health Bag on {!Appointment__c.Appointment_Date__c} {!Appointment__c.Appointment_Time__c}. Please try to arrive 15 minutes early. Details
+
+Patient Name - {!Appointment__c.Patient_Name__c} 
+Physician Name - {!Appointment__c.00N5g000003wqcB} 
+Specialization - {!Appointment__c.00N5g000003wqcG} 
+Date/Time - {!Appointment__c.Appointment_Date__c} {!Appointment__c.Appointment_Time__c} 
+Fee - {!Appointment__c.Fee__c}
+
+Have a wonderful day! 
+
+Warm regards, 
+Health Bag Clinic.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

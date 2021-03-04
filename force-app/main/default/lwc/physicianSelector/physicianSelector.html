@@ -1,0 +1,13 @@
+<template>
+    <template if:true={showPhysicians}>
+        <lightning-card title="Select Physician">
+            <div class="flex flex-j-center flex-a-center flex-wrap hb-p-0-25 physicians-container">
+                <!--Physician Button Start -->
+                <template for:each={physicians} for:item="physician">
+                    <button key={physician.Id} data-id={physician.Id} class="hb-btn hb-btn-primary hb-m-1-auto" onclick={onPhysicianSelection}>{physician.Name}</button>
+                </template>
+                <!--Physician Button End -->
+            </div>
+        </lightning-card>
+    </template>
+</template>

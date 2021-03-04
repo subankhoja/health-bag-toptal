@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+  
+  <types>
+    <members>AppHandler</members>
+    <members>AppHandlerTest</members>
+    <name>ApexClass</name>
+  </types>
+  
+  <types>
+    <members>LEXTHEMINGHealthBag</members>
+    <name>BrandingSet</name>
+  </types>
+ 
+  
+  <types>
+    <members>Appointment__c.Appointment_Date__c</members>
+    <members>Appointment__c.Appointment_Time__c</members>
+    <members>Appointment__c.Fee__c</members>
+    <members>Appointment__c.Patient__c</members>
+    <members>Appointment__c.Patient_Email__c</members>
+    <members>Appointment__c.Patient_Name__c</members>
+    <members>Appointment__c.Physician__c</members>
+    <members>Appointment__c.Physician_Name__c</members>
+    <members>Appointment__c.Specialization__c</members>
+	<members>Appointment__c.Specialization_Name__c</members>
+    <members>Patient__c.Email__c</members>
+    <members>Patient__c.First_Name__c</members>
+    <members>Patient__c.Last_Name__c</members>
+    <members>Patient__c.Mobile_No__c</members>
+    <members>Specialization__c.Price__c</members>
+	<members>User_Specialization__c.Physician__c</members>
+	<members>User_Specialization__c.Specialization__c</members>
+    <name>CustomField</name>
+  </types>
+  
+  <types>
+    <members>AllowAppointmentMail</members>
+    <name>CustomLabel</name>
+  </types>
+ 
+  <types>
+    <members>Appointment__c</members>
+    <members>Patient__c</members>
+    <members>Specialization__c</members>
+	<members>User_Specialization__c</members>	
+    <name>CustomObject</name>
+  </types>
+  
+  <types>
+    <members>Appointment__c</members>
+    <members>Appointment_Dashboard</members>
+    <members>Book_Appointment</members>
+    <members>Book_Appointment_Tab</members>
+    <members>Patient__c</members>
+    
+    <members>Specialization__c</members>
+    <name>CustomTab</name>
+  </types>
+  
+ 
+  
+  <types>
+    <members>unfiled$public/Appointment_Email_Template</members>
+    <name>EmailTemplate</name>
+  </types>
+  
+ 
+  <types>
+    <members>Appointment__c-Appointment Layout</members>
+    <members>Patient__c-Patient Layout</members>
+    <members>Specialization__c-Specialization Layout</members>
+    <name>Layout</name>
+  </types>
+  
+  <types>
+    <members>app</members>
+    <members>appointmentForm</members>
+    <members>confirmationComponent</members>
+    <members>globalcss</members>
+    <members>patientForm</members>
+    <members>physicianSelector</members>
+    <members>specializationForm</members>
+    <name>LightningComponentBundle</name>
+  </types>
+  
+  <types>
+    <members>Appointment__c.All</members>
+    <members>Patient__c.All</members>
+    <members>Specialization__c.All</members>
+    <name>ListView</name>
+  </types>
+  
+  <types>
+    <members>unfiled$public/Appointments_by_Physician_b67</members>
+    <members>unfiled$public/Appointments_By_Specialization_4ax</members>
+    <name>Report</name>
+  </types>
+  
+
+	<types>
+        <members>BusinessHours</members>
+        <name>Settings</name>
+	</types>
+
+  <version>49.0</version>
+</Package>

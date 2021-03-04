@@ -1,0 +1,45 @@
+<template>
+
+    <!-- Patient Deail Component Start-->
+    <div class="hb-m-1 hb-p-1">
+        <c-patient-form onpatientsubmit={handlePatientData}></c-patient-form>
+    </div>
+    <!-- Patient Deail Component End-->
+
+    <!-- Specialization Form Start-->
+    <div class="hb-m-1 hb-p-1">
+        <c-specialization-form onspecializationsubmit={handleSpecializationData}></c-specialization-form>
+    </div>
+    <!-- Specialization Form End-->
+
+    <!-- Physician Form Start-->
+    <div class="hb-m-1 hb-p-1">
+        <c-physician-selector
+            specialization-id={specializationId}
+            onphysiciansubmit={handlePhysicianData}>
+        </c-physician-selector>
+    </div>
+    <!-- Physician Form End-->
+
+    <!-- Appointment Form Start-->
+    <div class="hb-m-1 hb-p-1">
+        <c-appointment-form 
+            physician-id={physicianId}
+            patient-id={patientId}
+            onappointmentsubmit={handleAppointmentData}
+            ></c-appointment-form>
+    </div>
+    <!-- Appointment Form End-->
+
+    <!-- Confirmation Block Start-->
+    <div class="hb-m-1 hb-p-1" if:true={showConfirm}>
+        <c-confirmation-component
+        patient-data={patientData}
+        specialization-data={specializationData}
+        appointment-data={appointmentData}
+        physician-data={physicianData}
+        ></c-confirmation-component>
+    </div>
+    <!-- Confirmation Block End-->
+    
+</template>
