@@ -86,9 +86,8 @@ export default class ConfirmationComponent extends NavigationMixin(LightningElem
                     variant: 'error',
                 }),
             );
-            console.error('Error while Creating Event',error);
         });
-            
+             
     }
 
     /**

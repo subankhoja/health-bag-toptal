@@ -93,19 +93,6 @@ export default class PatientForm extends LightningElement {
 
             // Dispatches the event.
             this.dispatchEvent(patientDetailEvent);
-            // Log the Event
-            console.log(
-                {
-                "name":'patientsubmit',
-                'origin':'PatientForm',
-                'data': {
-                    id : this.patientId,
-                    firstName : this.firstName,
-                    lastName : this.lastName,
-                    email : this.email,
-                    phone : this.phone 
-                }
-            });
         }
         
     }

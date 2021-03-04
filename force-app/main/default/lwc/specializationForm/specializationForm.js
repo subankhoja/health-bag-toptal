@@ -32,7 +32,6 @@ export default class SpecializationForm extends LightningElement {
                     variant: 'Error',
                 }),
             );
-            console.error('Error while retrieving Specialization',error);
         }
     }
 
@@ -68,13 +67,6 @@ export default class SpecializationForm extends LightningElement {
 
             // Dispatches the event.
             this.dispatchEvent(specializationDetailEvent);
-            // Logging Event
-            console.log(
-                {
-                "name":'specializationsubmit',
-                'origin':'SpecializationForm',
-                'data': selectedSpecialization[0]
-            });
         }
     }
 

@@ -54,7 +54,6 @@ export default class PhysicianSelector extends LightningElement {
                     variant: 'Error',
                 }),
             );
-            console.log('Error while Retieving Physicians..',error);
         }
     }
 
@@ -86,13 +85,6 @@ export default class PhysicianSelector extends LightningElement {
             );
             // Dispatches the event.
             this.dispatchEvent(PhysicianDetailEvent);
-            // Logging Custom event
-            console.log(
-                {
-                "name":'physiciansubmit',
-                'origin':'PhysicianSelector',
-                'data': selectedPhysician[0]
-            });
         }
     }
 

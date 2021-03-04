@@ -10,7 +10,7 @@
     <span style="font-weight:600">Patient Name</span> - <span style="color:#2c77db;font-weight:600">{!Appointment__c.Patient_Name__c}</span>
   </li>
   <li>
-    <span style="font-weight:600">Physician Name</span> - <span style="color:#2c77db;font-weight:600">{!Appointment__c.Physician_Email__c}</span>
+    <span style="font-weight:600">Physician Email</span> - <span style="color:#2c77db;font-weight:600">{!Appointment__c.Physician_Email__c}</span>
   </li>
   <li>
     <span style="font-weight:600">Specialization</span> - <span style="color:#2c77db;font-weight:600">{!Appointment__c.Specialization_Name__c}</span>

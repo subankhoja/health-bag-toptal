@@ -148,7 +148,6 @@ export default class AppointmentForm extends LightningElement {
                         variant: 'Error',
                     }),
                 );
-                console.error('Error while getting Time Slots => ',error);
             });
         }
     }
@@ -199,19 +198,6 @@ export default class AppointmentForm extends LightningElement {
             // Make All Fields Read Only
             this.makeFormReadonly(this.formStatus);
             this.btnName = 'Edit'; // Change Button Name to Edit
-
-            // Logging Custom Event
-            console.log(
-                {
-                "name":'appointmentsubmit',
-                'origin':'AppointmentForm',
-                'data': {
-                    appointmentDate : {
-                        date : this.appointmentDate,
-                        time : this.selectedTime
-                    }
-                }
-            });
         }
         
     }

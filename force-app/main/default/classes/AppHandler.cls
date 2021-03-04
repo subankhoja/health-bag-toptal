@@ -162,10 +162,6 @@ public with sharing class AppHandler{
 
             String startDay = start_dateTime.format(WEEKDAY_FORMAT); // Getting Week Day from Date/Time
             
-            
-            System.debug('APPOINTMENT DATE '+appointmentDate);
-            System.debug('patientId  '+patientId);
-            
             //Querying Events for User id between start_dateTime and end_dateTime.
             List<Physician_Event__c> events = new List<Physician_Event__c>();
             if(String.isNotBlank(patientId)){
@@ -195,8 +191,6 @@ public with sharing class AppHandler{
                 ];
             }
             
-            System.debug('events  '+events.size());
-            
             // If Mintime is not passed or appointment date is not today set minTime to 0
             if(minTime == null || start_dateTime.Date() != Date.Today()){
                 minTime = 0;
@@ -217,22 +211,17 @@ public with sharing class AppHandler{
             
             // Getting All Time Interval for a Start Day.
             timeIntervalList = generateTimeIntervals(startDay,minTime);
-            System.debug('timeIntervalList @@ '+timeIntervalList);
-            System.debug('occupiedTimes @@ '+occupiedTimes);
             // if There are no Occupied Slots for that Physician return All Slots for given Day.
             if(occupiedTimes.isEmpty()){
                 return timeIntervalList;
             }else{
-                System.debug('ELSE @@ ');
                 //if Not removing occupied slots from all Solts and Adding it to Available Slots
                 for(String timeIntervalString : timeIntervalList){
                     if(occupiedTimes.contains(timeIntervalString)) continue;
                     availableTimes.add(timeIntervalString);
                 }
-                System.debug('availableTimes @@ '+availableTimes);
                 // return available Time Slots.
                 return availableTimes;
-                
             }
         }catch(Exception exp){
             AppLogger.createErrorLog('AppHandler','getAppointmentEvents',exp.getMessage(),exp.getLineNumber());
@@ -256,7 +245,6 @@ public with sharing class AppHandler{
     public static List<String> generateTimeIntervals(String day , Integer minTime){
         
         try{
-            System.debug('minTime =>@@  '+minTime);
             List<String> timeIntervalList = new List<String>(); // List which will contain time Intervals to return
             
             String dayStartTimeFieldName = day+FIELD_SUFFIX_START_TIME; //Reference to DayStartTime Field
@@ -279,8 +267,6 @@ public with sharing class AppHandler{
                     startHour = minTime;
                 }
                 endHour = ((Time)defaultBusinessHour[0].get(dayEndTimeFieldName)).hour(); // Business End Hour
-                System.debug('B START MINUTE => '+((Time)defaultBusinessHour[0].get(dayStartTimeFieldName)).minute());
-                System.debug('B END MINUTE => '+((Time)defaultBusinessHour[0].get(dayEndTimeFieldName)).minute());
                 
                 // Loop From StartHour to End Hour and Generate Time Interval
                 // i.e if StartHour is 8 and EndHour is 9 time Interval will be 8:00 - 9:00
@@ -288,7 +274,6 @@ public with sharing class AppHandler{
                     timeIntervalList.add(generateTimeString(index,index+1));
                 }     
             }
-            System.debug('timeIntervalList =>@@  '+timeIntervalList);
             return timeIntervalList;
         }catch(Exception exp){
             AppLogger.createErrorLog('AppHandler','generateTimeIntervals',exp.getMessage(),exp.getLineNumber());
@@ -592,11 +577,6 @@ public with sharing class AppHandler{
             Integer month = appointmentRec[0].Appointment_Date__c.month();
             Integer year = appointmentRec[0].Appointment_Date__c.year();
 
-            System.debug('day '+day);
-            System.debug('month '+month);
-            System.debug('year '+year);
-
-            
             //Getting Start Hour From Appointment Time Interval
             String startHour = appointmentRec[0].Appointment_Time__c.split(' - ')[0].split(':')[0];
             startHour = getStringVersionOfNumber(Integer.valueOf(startHour));
@@ -607,48 +587,33 @@ public with sharing class AppHandler{
             
             String StartTime = startHour+DEFAULT_MINUTE_STR+DEFAULT_SECOND_STR;
             String endTime = endHour+DEFAULT_MINUTE_STR+DEFAULT_SECOND_STR;
-            System.debug('StartHour '+StartHour);
-            System.debug('endHour '+endHour);
-            
-            System.debug('StartTime '+StartTime);
-            System.debug('endTime '+endTime);
 
             // Getting Timezone of Current User.
             TimeZone userTimeZone = UserInfo.getTimeZone();
-            System.debug('userTimeZone '+userTimeZone);
 
             // Getting String Veriosn . i.e Asia/Kolkata [Required for Google Api]
             String TimeZoneStr = String.valueOf(userTimeZone);
 
             // Getting TimeZone Offset
             Decimal timeZoneOffset = userTimeZone.getOffset(appointmentRec[0].Appointment_Date__c);
-            System.debug('timeZoneOffset '+timeZoneOffset);
 
             // Calculating Offset in form of (+|-)hh:mm format
             Decimal timeZoneOffsetInFraction = (Decimal)(timeZoneOffset/(SECONDS_PER_MINUTE * MINUTES_PER_HOUR * MILLISECONDS_PER_SECOND));
-            System.debug('timeZoneOffsetInFraction '+timeZoneOffsetInFraction);
             Integer timeZoneOffsetHour = (Integer)Math.abs(timeZoneOffsetInFraction);
-            System.debug('timeZoneOffsetHour '+timeZoneOffsetHour);
             Integer timeZoneOffsetMinute = (Integer)((timeZoneOffsetInFraction - timeZoneOffsetHour)*MINUTES_PER_HOUR);
-            System.debug('timeZoneOffsetMinute '+timeZoneOffsetMinute);
             String timeZoneOffsetString = (timeZoneOffset < 0)? '-':'+';
             timeZoneOffsetString += getStringVersionOfNumber(timeZoneOffsetHour) + ':' + timeZoneOffsetMinute;
-            System.debug('timeZoneOffsetString '+timeZoneOffsetString);
 
             // Generate Final Timezone based version of Start Time
             String startDateTime = year+'-'+month+'-'+day+'T'+StartTime+timeZoneOffsetString;
-            System.debug('startDateTime '+startDateTime);
             // Generate Final Timezone based version of End Time
             String endDateTime = year+'-'+month+'-'+day+'T'+endTime+timeZoneOffsetString;
-            System.debug('endDateTime '+endDateTime);
 
             String physicianEmail = appointmentRec[0].Physician_Email__c;
             String patientEmail = appointmentRec[0].Patient_Email__c;
-            System.debug('@@physicianEmail '+physicianEmail);
-            System.debug('@@patientEmail '+patientEmail);
+
             //String bodyStr = AppHandler.generateGoogleEventRequest('Appointment with HealthBag','2021-03-08T09:00:00+05:30','2021-03-08T10:00:00+05:30','Asia/Kolkata','jatrudorta@nedoz.com','abby.patel.healthbag@gmail.com');     
             String bodyStr = AppHandler.generateGoogleEventRequest(EVENT_SUBJECT,startDateTime,endDateTime,TimeZoneStr,patientEmail,physicianEmail);     
-            System.debug(bodyStr);
             sendGoogleEvent(bodyStr);
         }catch(Exception exp){
             AppLogger.createErrorLog('AppHandler','configureGoogleEventCallout',exp.getMessage(),exp.getLineNumber());
@@ -670,8 +635,6 @@ public with sharing class AppHandler{
     @future(callout = true)
     public static void sendGoogleEvent(string requestBody) {
         try{
-            System.debug('@@requestBody '+requestBody);
-
             // Initializing Http Request and Response
             Http http = new Http();
             HttpRequest request = new HttpRequest();
@@ -686,7 +649,6 @@ public with sharing class AppHandler{
             
             //Sending Request...
             response = http.send(request); 
-            System.debug(response.getBody());
         }catch(Exception exp){
             AppLogger.createErrorLog('AppHandler','sendGoogleEvent',exp.getMessage(),exp.getLineNumber());
         }
